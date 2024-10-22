@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import React from 'react';
 
 /**
  * StandardContainer component wraps its children with a styled container.

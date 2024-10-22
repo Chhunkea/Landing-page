@@ -1,315 +1,302 @@
-import {
-    Box,
-    Typography,
-} from "@mui/material";
-
-// Import footer data
-import { LogoAndCopyright, LearnMorelinks, Links, SocialLinks, ContactUs } from "../../data/footer";
-
-// Import custom link component
-import CustomLink from "../../components/CustomLink";
+import { Box, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import {
+    LogoAndCopyright,
+    LearnMorelinks,
+    Links,
+    SocialLinks,
+    ContactUs,
+} from '../../data/footer';
+import CustomLink from '../../components/CustomLink';
 
 function Footer() {
-    const theme = useTheme(); // Get theme from MUI
+    const theme = useTheme();
 
     return (
-        <>
-            {/* Main container for the footer */}
+        <Box
+            sx={{
+                padding: {
+                    xs: '48px 16px',
+                    md: '48px 32px',
+                    lg: '48px 56px',
+                },
+                width: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '24px',
+                bgcolor: theme.palette.background,
+            }}
+        >
+            {/* Main container for logo and text sections */}
             <Box
                 sx={{
-                    padding: {
-                        xs: '48px 16px',
-                        md: '24px 32px', 
-                        lg: '48px 56px', 
-                    },
-                    width: '100%', 
+                    width: '100%',
+                    maxWidth: '1280px',
                     display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center', 
-                    gap: '24px', 
-                    bgcolor: theme.palette.background, 
+                    flexDirection: { xs: 'column', md: 'row' },
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    gap: { xs: '24px', md: '48px' },
                 }}
             >
-                {/* Container for logo and navigation sections */}
+                {/* Logo Section */}
                 <Box
                     sx={{
                         display: 'flex',
-                        width: '100%',
-                        maxWidth: '1280px', 
-                        justifyContent: 'center', 
-                        flexDirection: { xs: 'column', md: 'row' }, 
-                        gap: { xs: '24px', sm: '32px', md: '48px' }, 
+                        flexDirection: 'column',
+                        gap: '16px',
+                        width: { xs: '100%', md: '240px' },
+                        alignItems: 'flex-start',
                     }}
                 >
-                    {/* Logo and copyright section */}
                     <Box
+                        component="img"
+                        src={LogoAndCopyright[0].Logo}
+                        alt="Harvest Hub Logo"
                         sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '24px', 
-                            width: '240px', 
+                            width: '157px',
+                            height: '89px',
                         }}
+                    />
+                    <Typography
+                        sx={{
+                            color: theme.palette.gray.main,
+                            textAlign: { xs: 'center', md: 'left' },
+                        }}
+                        variant="bodySmall"
                     >
-                        <Box
-                            component="img"
-                            src={LogoAndCopyright[0].Logo} // Logo image source
-                            sx={{
-                                width: '157px', 
-                                height: '89px', 
-                            }}
-                        />
-                        <Typography
-                            sx={{
-                                color: theme.palette.gray.main, 
-                            }}
-                            variant="bodySmall" 
-                        >
-                            {LogoAndCopyright[1].copyright} 
-                        </Typography>
-                    </Box>
-                    {/* Navigation sections: Learn More, Get to Know Us, and Get in Touch */}
-                    <Box>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                flexDirection: { xs: 'column', md: 'row' }, 
-                                gap: { xs: '24px', md: '0px' }, 
-                            }}
-                        >
-                            {/* Learn More section */}
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: '8px', 
-                                    width: '100%', 
-                                }}
-                            >
-                                <Typography
-                                    sx={{
-                                        color: theme.palette.black.tertiary, 
-                                    }}
-                                    variant="titleMedium"
-                                >
-                                    Learn More
-                                </Typography>
-                                <Box
-                                    sx={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        gap: '8px', 
-                                    }}
-                                >
-                                    {LearnMorelinks.map((data) => (
-                                        <CustomLink
-                                            to={data.url} 
-                                            key={data.text} 
-                                        >
-                                            <Typography
-                                                sx={{
-                                                    color: theme.palette.gray.main, 
-                                                }}
-                                                variant="bodySmall" 
-                                            >
-                                                {data.text} 
-                                            </Typography>
-                                        </CustomLink>
-                                    ))}
-                                </Box>
-                            </Box>
-                            {/* Get to Know Us section */}
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: '8px', 
-                                }}
-                            >
-                                <Typography
-                                    sx={{
-                                        color: theme.palette.black.tertiary, 
-                                    }}
-                                    variant="titleMedium" 
-                                >
-                                    Get to Know Us
-                                </Typography>
-                                <Box
-                                    sx={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        gap: '8px', 
-                                    }}
-                                >
-                                    {Links.map((data) => (
-                                        <CustomLink
-                                            to={data.url} 
-                                            key={data.text} 
-                                        >
-                                            <Typography
-                                                sx={{
-                                                    color: theme.palette.gray.main, 
-                                                }}
-                                                variant="bodySmall" 
-                                            >
-                                                {data.text} 
-                                            </Typography>
-                                        </CustomLink>
-                                    ))}
-                                </Box>
-                            </Box>
-                            {/* Get in Touch section */}
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    gap: '8px', 
-                                    width: '100%', 
-                                }}
-                            >
-                                <Typography
-                                    sx={{
-                                        color: theme.palette.black.tertiary,
-                                    }}
-                                    variant="titleMedium"
-                                >
-                                    Get in Touch
-                                </Typography>
-                                <Box
-                                    sx={{
-                                        color: theme.palette.gray.main, 
-                                        width: '100%', 
-                                    }}
-                                >
-                                    <Typography
-                                        sx={{
-                                            color: theme.palette.gray.main, 
-                                        }}
-                                        variant="bodySmall"
-                                    >
-                                        "
-                                    </Typography>
-                                    <Typography
-                                        sx={{
-                                            color: theme.palette.green.tertiary, 
-                                            paddingRight: '2px', 
-                                        }}
-                                        variant="bodySmall"
-                                    >
-                                        [Harvest Hub]
-                                    </Typography>
-                                    <Typography variant="bodySmall">
-                                        Connecting farmers and merchants for
-                                    </Typography>
-                                    <Typography
-                                        sx={{
-                                            color: theme.palette.green.tertiary, 
-                                            paddingLeft: '2px', 
-                                        }}
-                                        variant="bodySmall"
-                                    >
-                                        a sustainable future—one harvest at a time.
-                                    </Typography>
-                                    <Typography
-                                        sx={{
-                                            color: theme.palette.gray.main, 
-                                        }}
-                                        variant="bodySmall"
-                                    >
-                                        "
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    sx={{
-                                        display: 'flex',
-                                        gap: '8px',
-                                    }}
-                                >
-                                    {SocialLinks.map((data) => (
-                                        <CustomLink
-                                            to={data.url} 
-                                            key={data.platform} 
-                                            sx={{
-                                                display: 'flex',
-                                                alignItems: 'center',
-                                                gap: '8px', 
-                                            }}
-                                        >
-                                            <Box
-                                                component="img"
-                                                src={data.icon} 
-                                                sx={{
-                                                    width: '24px',
-                                                    height: '24px', 
-                                                }}
-                                            />
-                                        </CustomLink>
-                                    ))}
-                                </Box>
-                            </Box>
-                        </Box>
-                    </Box>
+                        {LogoAndCopyright[1].copyright}
+                    </Typography>
                 </Box>
 
-                {/* Contact Us section */}
+                {/* Learn More Section */}
                 <Box
                     sx={{
-                        width: '100%', 
-                        maxWidth: '1280px', 
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '8px',
+                        width: { xs: '100%', md: 'auto' },
                     }}
                 >
+                    <Typography
+                        sx={{
+                            color: theme.palette.black.tertiary,
+                            fontWeight: 'bold',
+                        }}
+                        variant="titleMedium"
+                    >
+                        Learn More
+                    </Typography>
+                    {LearnMorelinks.map((data) => (
+                        <CustomLink to={data.url} key={data.text}>
+                            <Typography
+                                sx={{
+                                    color: theme.palette.gray.main,
+                                }}
+                                variant="bodySmall"
+                            >
+                                {data.text}
+                            </Typography>
+                        </CustomLink>
+                    ))}
+                </Box>
+
+                {/* Get to Know Us Section */}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '8px',
+                        width: { xs: '100%', md: 'auto' },
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            color: theme.palette.black.tertiary,
+                            fontWeight: 'bold',
+                        }}
+                        variant="titleMedium"
+                    >
+                        Get to Know Us
+                    </Typography>
+                    {Links.map((data) => (
+                        <CustomLink to={data.url} key={data.text}>
+                            <Typography
+                                sx={{
+                                    color: theme.palette.gray.main,
+                                }}
+                                variant="bodySmall"
+                            >
+                                {data.text}
+                            </Typography>
+                        </CustomLink>
+                    ))}
+                </Box>
+
+                {/* Get in Touch Section */}
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '8px',
+                        width: { xs: '100%', md: 'auto' },
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            color: theme.palette.black.tertiary,
+                            fontWeight: 'bold',
+                        }}
+                        variant="titleMedium"
+                    >
+                        Get in Touch
+                    </Typography>
+                    <Box>
+                        <Typography
+                            sx={{
+                                display: 'inline',
+                                color: theme.palette.gray.main,
+                            }}
+                            variant="bodySmall"
+                        >
+                            "
+                        </Typography>
+                        <Typography
+                            sx={{
+                                display: 'inline',
+                                color: theme.palette.green.tertiary,
+                                paddingRight: '2px',
+                            }}
+                            variant="bodySmall"
+                        >
+                            [Harvest Hub]
+                        </Typography>
+                        <Typography
+                            sx={{
+                                display: 'inline',
+                                color: theme.palette.gray.main,
+                            }}
+                            variant="bodySmall"
+                        >
+                            Connecting farmers and merchants for
+                        </Typography>
+                        <Typography
+                            sx={{
+                                display: 'inline',
+                                color: theme.palette.green.tertiary,
+                                paddingLeft: '2px',
+                            }}
+                            variant="bodySmall"
+                        >
+                            a sustainable future—one harvest at a time.
+                        </Typography>
+                        <Typography
+                            sx={{
+                                display: 'inline',
+                                color: theme.palette.gray.main,
+                            }}
+                            variant="bodySmall"
+                        >
+                            "
+                        </Typography>
+                    </Box>
                     <Box
                         sx={{
                             display: 'flex',
-                            flexDirection: 'column',
-                            gap: '12px', 
-                            width: '100%',
-                            maxWidth: '1280px', 
+                            gap: '8px',
+                            marginTop: '8px',
                         }}
                     >
-                        <Typography
-                            sx={{
-                                color: theme.palette.black.tertiary,
-                            }}
-                            variant="titleMedium" 
-                        >
-                            Contact Us
-                        </Typography>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '12px', 
-                            }}
-                        >
-                            {ContactUs.map((data) => (
+                        {SocialLinks.map((data) => (
+                            <CustomLink
+                                to={data.url}
+                                key={data.platform}
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '8px',
+                                }}
+                            >
                                 <Box
+                                    component="img"
+                                    src={data.icon}
+                                    alt={data.platform}
                                     sx={{
-                                        display: 'flex',
-                                        gap: '12px', // Gap between icon and text
-                                        alignItems: 'center', // Center align items vertically
+                                        width: '24px',
+                                        height: '24px',
                                     }}
-                                    key={data.text} 
-                                >
-                                    <Box
-                                        component="img"
-                                        src={data.icon} 
-                                        alt={data.text} 
-                                    />
-                                    <Typography
-                                        sx={{ color: theme.palette.gray.main }} 
-                                        variant="bodySmall" 
-                                    >
-                                        {data.text} 
-                                    </Typography>
-                                </Box>
-                            ))}
-                        </Box>
+                                />
+                            </CustomLink>
+                        ))}
                     </Box>
                 </Box>
             </Box>
-        </>
+
+            {/* Contact Us Section */}
+            <Box
+                sx={{
+                    width: '100%',
+                    maxWidth: '1280px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    gap: '24px',
+
+                    // Change to row for medium (md) screens and larger
+                    [theme.breakpoints.up('md')]: {
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                    },
+                }}
+            >
+                <Box
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '12px',
+                        alignItems: 'flex-start',
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            color: theme.palette.black.tertiary,
+                            fontWeight: 'bold',
+                        }}
+                        variant="titleMedium"
+                    >
+                        Contact Us
+                    </Typography>
+
+                    {ContactUs.map((data) => (
+                        <Box
+                            key={data.text}
+                            sx={{
+                                display: 'flex',
+                                gap: '12px', // Space between icon and text
+                                alignItems: 'center',
+                            }}
+                        >
+                            <Box
+                                component="img"
+                                src={data.icon}
+                                alt={data.text}
+                                sx={{
+                                    width: '24px',
+                                    height: '24px',
+                                }}
+                            />
+                            <Typography
+                                sx={{ color: theme.palette.gray.main }}
+                                variant="bodySmall"
+                            >
+                                {data.text}
+                            </Typography>
+                        </Box>
+                    ))}
+                </Box>
+            </Box>
+        </Box>
     );
 }
 

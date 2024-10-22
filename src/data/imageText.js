@@ -1,6 +1,7 @@
 import CommunityImage from '../assets/images/community-landing.svg';
 import ProductImage from '../assets/images/product-img.svg';
 import JourneyImage from '../assets/images/plant-journey.svg';
+import React from 'react';
 
 const landingPageData = {
     sections: [

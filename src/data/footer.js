@@ -5,6 +5,7 @@ import LinkedIn from '../assets/icons/linkedIn.svg';
 import Phone from '../assets/icons/phone.svg';
 import Email from '../assets/icons/mail.svg';
 import Location from '../assets/icons/Location.svg';
+import React from 'react';
 
 //Logo and copyright text
 import HavestHub from '../assets/icons/HarvestHub-Logo.svg';

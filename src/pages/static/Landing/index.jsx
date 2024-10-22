@@ -5,6 +5,7 @@ import IconLanding from './IconLanding';
 import ImageText from '../../../components/ImageTextSection';
 import Slider from '../../../components/SliderLanding';
 import Accordion from '../../../components/Accordion';
+import React from 'react';
 
 function LandingPage() {
     return (

@@ -1,8 +1,12 @@
 import React from 'react';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import { Box, Card, CardContent, Typography, IconButton, useTheme } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import SliderData from '../data/slider';
+
+
 
 const SliderLanding = ({sx}) => {
     const theme = useTheme();

@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+
 import { motion } from 'framer-motion';
 import { Box, Grid, useTheme } from '@mui/material';
 import RecyclePlant from '../../../assets/icons/first-flower.svg';

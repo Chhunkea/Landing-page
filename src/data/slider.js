@@ -2,6 +2,7 @@ import Community from '../assets/images/community-forum.svg';
 import Farming from '../assets/images/farming-tip.svg';
 import Payment from '../assets/images/payment.svg';
 import Product from '../assets/images/product.svg';
+import React from 'react';
 
 const SliderData = {
     title: '🌿 OUR BEST SERVICES',
