@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
     Box,
     Grid,
@@ -12,9 +12,34 @@ import {
 } from '@mui/material';
 import CheckIcon from '@mui/icons-material/Check';
 import landingPageData from '../data/imageText';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-const LandingPage = () => {
+gsap.registerPlugin(ScrollTrigger);
+
+function ImageTextSection() {
     const theme = useTheme();
+    const textRefs = useRef([]);
+
+    useEffect(() => {
+        textRefs.current.forEach((text, index) => {
+            gsap.fromTo(
+                text,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: text,
+                        start: 'top 80%',
+                        toggleActions: 'play none none reverse',
+                    },
+                }
+            );
+        });
+    }, []);
+
     return (
         <Box>
             {landingPageData.sections.map((section, index) => (
@@ -63,7 +88,10 @@ const LandingPage = () => {
                                     xs: 'bodyMedium',
                                     md: 'bodyLarge',
                                 }}
-                                sx={{ marginTop: '12px', marginBottom: '16px' }}
+                                sx={{
+                                    marginTop: '12px',
+                                    marginBottom: '16px',
+                                }}
                             >
                                 {section.description}
                             </Typography>
@@ -95,6 +123,6 @@ const LandingPage = () => {
             ))}
         </Box>
     );
-};
+}
 
-export default LandingPage;
+export default ImageTextSection;

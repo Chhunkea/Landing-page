@@ -4,7 +4,7 @@ import CustomButton from '../../../components/CustomButton';
 import { Link } from 'react-router-dom';
 import React from 'react';
 
-const HeaderCta = () => {
+function HeaderCta () {
     const theme = useTheme();
     const headerHeightXs = '56px';
     const headerHeightSm = '72px';
@@ -40,7 +40,8 @@ const HeaderCta = () => {
                             letterSpacing: '5px',
                             textTransform: 'uppercase',
                             background:
-                                'linear-gradient(to right, #4CAF50, #8BC34A, #CDDC39, #D4E157)',
+                                'linear-gradient(45deg, #FF9800, #FFC107, #FFEB3B, #4CAF50)',
+                            backgroundSize: '200% 100%',
                             WebkitBackgroundClip: 'text',
                             WebkitTextFillColor: 'transparent',
                             animation: 'colorShift 10s ease infinite',

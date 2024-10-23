@@ -6,7 +6,7 @@ function LandingLayoutRouter() {
     return (
         <Routes>
             <Route element={<LandingLayout />}>
-                <Route path="/landing" element={<LandingPage />} />
+                <Route path="/" element={<LandingPage />} />
             </Route>
         </Routes>
     );

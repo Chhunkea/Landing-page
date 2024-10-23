@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { motion } from 'framer-motion';
 import { Box, Grid, useTheme } from '@mui/material';
 import RecyclePlant from '../../../assets/icons/first-flower.svg';
@@ -24,10 +23,10 @@ const icons = [
     { id: 3, src: GrowPlant, alt: 'Grow Plant' },
 ];
 
-function IconGrid() {
+function IconGrid({sx}) {
     const theme = useTheme();
     return (
-        <Grid container justifyContent="center" sx={{gap: '24px'}}>
+        <Grid container justifyContent="center" sx={{ ...sx, gap: {xs:'24px', md: '50px'}}}>
             {' '}
             {icons.map((icon) => (
                 <Grid item key={icon.id} xs="auto">

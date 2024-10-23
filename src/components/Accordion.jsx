@@ -24,7 +24,7 @@ function AccordionComponent({ sx }) {
         <Box sx={{ ...sx }}>
             <Box sx={{ marginBottom: '12px' }}>
                 <Typography
-                    variant="headlineSmall"
+                    variant="titleLarge"
                     sx={{
                         fontWeight: 'bold',
                         color: theme.palette.green.main,
@@ -36,7 +36,7 @@ function AccordionComponent({ sx }) {
 
             {/* Introductory Text */}
             <Box sx={{ marginBottom: '16px' }}>
-                <Typography variant="bodyLarge">
+                <Typography variant="bodyMedium">
                     Whether you're a{' '}
                     <Typography
                         component="span"
@@ -113,7 +113,15 @@ function AccordionComponent({ sx }) {
                             >
                                 {data.number}
                             </Typography>
-                            <Typography sx={{ marginLeft: '8px' }}>
+                            <Typography
+                                sx={{
+                                    typography: {
+                                        xs: 'bodyMedium',
+                                        md: 'bodyLarge',
+                                    },
+                                    marginLeft: '8px',
+                                }}
+                            >
                                 {data.question}
                             </Typography>
                         </AccordionSummary>
@@ -124,7 +132,16 @@ function AccordionComponent({ sx }) {
                                 padding: '0px 16px 12px 16px',
                             }}
                         >
-                            <Typography>{data.answer}</Typography>
+                            <Typography
+                                sx={{
+                                    typography: {
+                                        xs: 'bodyMedium',
+                                        md: 'bodyLarge',
+                                    },
+                                }}
+                            >
+                                {data.answer}
+                            </Typography>
                         </AccordionDetails>
                     </Accordion>
                 </Box>

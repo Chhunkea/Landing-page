@@ -6,16 +6,14 @@ import { Box, Card, CardContent, Typography, IconButton, useTheme } from '@mui/m
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import SliderData from '../data/slider';
 
-
-
-const SliderLanding = ({sx}) => {
+function SliderLanding ({sx}) {
     const theme = useTheme();
     const NextArrow = ({ onClick }) => (
         <IconButton
             onClick={onClick}
-            style={{
+            sx={{
                 position: 'absolute',
-                top: '50%',
+                top: {xs: '25%', md:'35%'},
                 right: '-40px',
                 zIndex: 1,
             }}
@@ -27,9 +25,9 @@ const SliderLanding = ({sx}) => {
     const PrevArrow = ({ onClick }) => (
         <IconButton
             onClick={onClick}
-            style={{
+            sx={{
                 position: 'absolute',
-                top: '50%',
+                top: {xs: '25%', md:'35%'},
                 left: '-40px',
                 zIndex: 1,
             }}

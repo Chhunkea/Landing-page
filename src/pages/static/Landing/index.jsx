@@ -12,7 +12,7 @@ function LandingPage() {
         <Box>
             <HeaderCta />
             <StandardContainer>
-                <IconLanding />
+                <IconLanding sx={{ marginBottom: {xs:'30px', md: '50px'} }} />
                 <ImageText />
                 <Slider sx={{ marginTop: '50px' }} />
                 <Accordion sx={{ marginTop: '64px' }} />
